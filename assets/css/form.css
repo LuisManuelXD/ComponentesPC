@@ -1,0 +1,77 @@
+.form-register {
+    width: 40%;
+    background-color: #43678b;
+    padding: 2em;
+    margin: 0 auto;
+    border-radius: 1em;
+    color: #fff;
+    border: .2em solid;
+    box-shadow: .5em .3em #c3c3be;
+}
+
+.form-register h4 {
+    font-size: 1.8em;
+    margin-bottom: .6em;
+}
+
+.form-register label {
+    color: #fff;
+}
+
+.form-register label:hover {
+    padding-left: .3em;
+    transition: all .3s ease;
+}
+
+.controls {
+    width: 100%;
+    background: #36495d;
+    padding: 1em;
+    border-radius: .4em;
+    margin-bottom: 1em;
+    border: .1em solid #dbdbdb;
+    color: #fff;
+    font-size: 1em;
+}
+
+.controls::placeholder {
+    color: #8e9eaf;
+}
+
+.form-register a {
+    display: block;
+    text-align: center;
+    font-size: 1em;
+    color: #fff;
+    text-decoration: none;
+    transition: all .2s ease;
+    margin-top: 1em;
+}
+
+.form-register a:hover {
+    color: #b8cee5;
+    font-size: 1.1em;
+    text-decoration: underline;
+}
+
+.form-register .botons {
+    width: 100%;
+    background-color: #ccd9ea;
+    padding: .8em;
+    border: none;
+    color: #000;
+    font-size: 1.3em;
+    font-weight: bolder;
+    transition: all .2s ease;
+}
+
+.form-register .botons:hover {
+    background-color: #afbac9;
+}
+
+@media(max-width: 900px) {
+    .form-register {
+        width: 80%;
+        margin-bottom: 2em;
+    }
+}
