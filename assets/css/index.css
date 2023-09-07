@@ -55,17 +55,6 @@ body {
     background-color: #5984BC;
 }
 
-/* footer {
-    position: fixed;
-    padding: 2em;
-    background-color: #2A4650;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    display: block;
-} */
-
 .info {
     padding: .4em;
 }
@@ -81,7 +70,7 @@ body {
 }
 
 .card {
-    margin: 1.5em;
+    margin: 2.5em;
 }
 
 .card-body {
@@ -187,6 +176,10 @@ body {
     font: bold;
 }
 
+.login-links p {
+    display: inline;
+}
+
 .form-group label {
     width: 100%;
     text-align: center;
@@ -268,6 +261,7 @@ body {
 .list-products {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .product {
@@ -277,13 +271,14 @@ body {
     border-radius: 1em;
     color: #fff;
     text-align: left;
+    width: 250px;
 }
 
 .product-image img {
     border-radius: 2em;
     padding: 1em .6em;
     height: auto;
-    width: 200px;
+    width: 215px;
 }
 
 .product-info a {
@@ -318,11 +313,15 @@ body {
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: .25em;
+    border-radius: .5em;
 }
 
 .stock {
     margin-bottom: 1em;
+}
+
+.stock span {
+    background-color: #1765be;
 }
 
 .fa {
@@ -342,6 +341,25 @@ svg {
     fill: #fff;
 }
 
+.product-item {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-item-image img {
+    border-radius: 1em;
+    margin: .8em 2em;
+}
+
+.product-item-available {
+    margin: 1em 0;
+}
+
+.product-item-available p {
+    display: inline;
+    color: #1765be;
+}
+
 @media(max-width: 900px) {
     .form-register {
         width: 80%;
@@ -350,6 +368,11 @@ svg {
 
     .login {
         width: 70%;
+    }
+
+    .login-links p {
+        visibility: collapse;
+        display: block;
     }
 
     .product {

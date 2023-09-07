@@ -24,24 +24,22 @@
     <section class="main">
         <section class="form-register">
             <h4>Formulario Registro</h4>
-            <form action="">
-                <label for="txtName">Nombre:</label>
-                <input class="controls" type="text" name="txtName" id="txtName" placeholder="Nombres(s)" autocomplete="none">
-                <label for="txtPaternalSurname">Apellido Paterno:</label>
-                <input class="controls" type="text" name="txtPaternalSurname" id="txtPaternalSurname" placeholder="Apellido Paterno" autocomplete="none">
-                <label for="txtPaternalSurname">Apellido Materno:</label>
-                <input class="controls" type="text" name="txtMaternalSurname" id="txtMaternalSurname" placeholder="Apellido Materno" autocomplete="none">
+            <form id="userForm" method="post">
+                <label for="txtFirstName">Nombre(s):</label>
+                <input class="controls" type="text" name="txtFirstName" id="txtFirstName" placeholder="Nombre(s)" autocomplete="none" required>
+                <label for="txtLastName">Apellido(s):</label>
+                <input class="controls" type="text" name="txtLastName" id="txtLastName" placeholder="Apellido(s)" autocomplete="none" required>
                 <label for="txtNumberPhone">Número Celular:</label>
-                <input class="controls" type="tel" name="txtNumberPhone" id="txtNumberPhone" placeholder="Número Celular/Whatsapp" autocomplete="none">
+                <input class="controls" type="tel" name="txtNumberPhone" id="txtNumberPhone" placeholder="Número Celular/Whatsapp" autocomplete="none" required>
                 <label for="txtEmail">Correo electrónico:</label>
-                <input class="controls" type="email" name="txtEmail" id="txtEmail" placeholder="correoEjemplo@gmail.com" autocomplete="none">
+                <input class="controls" type="email" name="txtEmail" id="txtEmail" placeholder="correoEjemplo@gmail.com" autocomplete="none" required>
                 <label for="txtPassword">Contraseña:</label>
-                <input class="controls" type="password" name="txtPassword" id="txtPassword" placeholder="Contraseña" autocomplete="none">
+                <input class="controls" type="password" name="txtPassword" id="txtPassword" placeholder="Contraseña" autocomplete="none" required>
                 <label for="txtPasswordRepeat">Repetir Contraseña:</label>
-                <input class="controls" type="password" name="txtPasswordRepeat" id="txtPasswordRepeat" placeholder="Repetir Contraseña" autocomplete="none">
+                <input class="controls" type="password" name="txtPasswordRepeat" id="txtPasswordRepeat" placeholder="Repetir Contraseña" autocomplete="none" required>
                 <input class="botons" type="submit" value="Registrarme">
-                <a href="/html/login.html">Ya tengo cuenta iniciar Sesión</a>
             </form>
+            <a href="/pages/login.html">Ya tengo cuenta, iniciar Sesión</a>
         </section>
     </section>
     <footer class="footer">
@@ -79,5 +77,5 @@
         </div>
     </footer>
 </body>
-
+<script src="/js/user/User.js"></script>
 </html>
