@@ -8,23 +8,37 @@
     <title>PC comoponets shop</title>
 </head>
 <body>
-    <header class="header">
+    <header>
         <nav class="nav-menu">
-            <ul>
+            <input type="checkbox" id="toggle">
+            <div class="logo">
+                <a href="/">
+                    <img src="/assets/img/logo.png" width="40px">
+                </a>
+                <a href="/">
+                    <p>Componentes PC</p>
+                </a>
+            </div>
+            <ul class="list">
                 <li><a href="/">Inicio</a></li>
                 <li><a href="/pages/products/productos.html">Productos</a></li>
                 <li><a href="/pages/user/registro.html">Registro</a></li>
                 <li><a href="/pages/login.html">login</a></li>
                 <li><a href="#">Salir</a></li>
             </ul>
+            <label for="toggle" class="icon-bars">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </label>
         </nav>
     </header>
     <section class="bodyLogin">
         <div class="login">
             <h2>Login</h2>
-            <form action="">
-                <input class="controls" id="mail" type="email" placeholder="Correo electrónico" autocomplete="none">
-                <input class="controls" id="password" type="password" placeholder="Contraseña" autocomplete="none">
+            <form id="loginForm" method="post">
+                <input class="controls" name="txtEmail" id="txtEmail" type="email" placeholder="Correo electrónico" autocomplete="none">
+                <input class="controls" name="txtPassword" id="txtPassword" type="password" placeholder="Contraseña" autocomplete="none">
                 <input type="submit" value="Iniciar sesión">
             </form>
             <div class="login-links">
@@ -54,19 +68,10 @@
                         <li><a href="#">Login</a></li>
                         <li><a href="#">Salir</a></li>
                     </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Tienda</h4>
-                    <ul>
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Productos</a></li>
-                        <li><a href="#">Registro</a></li>
-                        <li><a href="#">login</a></li>
-                        <li><a href="#">Salir</a></li>
-                    </ul>
-                </div>
+                </div>                
             </div>
         </div>
     </footer>
 </body>
+<script src="/js/login/Login.js"></script>
 </html>

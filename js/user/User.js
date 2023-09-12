@@ -7,7 +7,7 @@ form.onsubmit = function(e) {
     let password = document.querySelector('#txtPassword').value;
     let passwordRepeat = document.querySelector('#txtPasswordRepeat').value;
 
-    if(firstName == '' || lastName == '' || numberPhone == '' || email == '' || password == '' || passwordRepeat == '') {
+    if(firstName.value == '' || lastName.value == '' || numberPhone.value == '' || email.value == '' || password.value == '' || passwordRepeat.value == '') {
         alert('Rellene los campos faltantes.');
         e.preventDefault();
     } else {
@@ -20,14 +20,15 @@ form.onsubmit = function(e) {
         e.preventDefault();
 
         let ajax = new XMLHttpRequest();  
-            ajax.open('post', '/php/addUser.php', true);
+            ajax.open('post', '/php/User/Add.php', true);
             ajax.onload = function() {              
                 firstName = document.querySelector('#txtFirstName').value = null;
                 lastName = document.querySelector('#txtLastName').value = null;
                 numberPhone = document.querySelector('#txtNumberPhone').value = null;
                 email = document.querySelector('#txtEmail').value = null;
                 password = document.querySelector('#txtPassword').value = null;
-
+                passwordRepeat = document.querySelector('#txtPasswordRepeat').value = null;
+                alert('Se a registrado con exito.');
                 console.log(ajax.response);
             }
         
