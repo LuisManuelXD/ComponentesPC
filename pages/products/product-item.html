@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/img/favicon.ico" />
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/fontawesome/css/all.css">
     <title>Producto item</title>
 </head>
 <body>
@@ -35,23 +37,36 @@
     </header>
     <section class="main">
         <div class="product-item">
-            <div class="product-item-image">
-                <img src="/assets/img/llamaTactica.png" alt="" width="200px">
+            <div class="conteiner-items">
+                <div class="product-item-image">
+                    <div class="content-image">
+                        <img src="/assets/img/table.png" alt="">
+                    </div>
+                </div>
+                <div class="pruduct-item-info">
+                    <h3>Titulo del producto Titulo del producto Titulo del producto Titulo del producto Titulo del producto Titulo del producto Titulo del producto Titulo del producto</h3>
+                    <div class="product-item-available">
+                        <h5>DISPONIBLES: <p>10</p></h5>
+                    </div>
+                    <div class="product-item-price">
+                        <p>$5,499.00</p>
+                    </div>
+                    <div class="product-item-trolley">
+                        <form action="#" method="POST">
+                            <span>Cantidad: </span>
+                            <input class="controls" type="number" id="txtCantidad" name="txtCantidad" placeholder="Cantidad" min="1" value="1" required>
+                            <div class="btn-car">
+                                <i class="fa fa-shopping-cart"></i>
+                                <input type="submit" id="btnAgregar" name="btnAgregar" value="Agregar al carrito">
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="pruduct-item-info">
-                <h3>Titulo del producto</h3>
-                <div class="product-item-available">
-                    <h5>DISPONIBLES: <p>10</p></h5>
-                </div>
-                <div class="product-item-price">
-                    <p>$5,499.00</p>
-                </div>
-                <div class="product-item-trolley">
-                    <input type="button" value="Agregar">
-                </div>
+            <div class="product-item-description">
+                <img src="/assets/img/table-description.png" alt="">
             </div>
         </div>
-        <div class="product-item-description"></div>
     </section>
     <footer class="footer">
         <div class="container">
@@ -67,10 +82,10 @@
                 <div class="footer-links">
                     <h4>Navegacion</h4>
                     <ul>
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Productos</a></li>
-                        <li><a href="#">Registro</a></li>
-                        <li><a href="#">Login</a></li>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/pages/products/productos.html">Productos</a></li>
+                        <li><a href="/pages/user/registro.html">Registro</a></li>
+                        <li><a href="/pages/login.html">Login</a></li>
                         <li><a href="#">Salir</a></li>
                     </ul>
                 </div>

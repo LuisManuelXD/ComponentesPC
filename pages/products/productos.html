@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/img/favicon.ico" />
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/fontawesome/css/all.css">
@@ -37,11 +38,25 @@
         </nav>
     </header>
     <section class="main">
+        <section class="product-search">
+            <div class="bar-search">
+                <div class="iconSearch">
+                    <span class="icon">
+                        <i class="fa fa-search fa-2x"></i>
+                    </span>
+                </div>
+                <form id="formSearch" method="GET" action="">
+                    <div class="input-search">
+                        <input class="controls" type="search" name="txtSearch" id="txtSearch" placeholder="Search..." autocomplete="off">
+                    </div>
+                </form>
+            </div>
+        </section>
         <section class="list-products">
             <div class="product">
                 <div class="product-image">
                     <a title="Titulo del producto" href="/pages/products/product-item.html">
-                        <img src="/assets/img/llamaTactica.png" alt="">
+                        <img src="/assets/img/table.png" alt="">
                     </a>
                 </div>
                 <div class="product-info">

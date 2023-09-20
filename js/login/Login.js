@@ -15,9 +15,14 @@ form.onsubmit = function(e) {
         let ajax = new XMLHttpRequest();
             ajax.open('post', '/php/Login.php', true);
             ajax.onload = function() {
-                let validateUser = ajax.response === false ? true : false; 
-                console.log(validateUser);
-                // window.location.href = "/";
+                let validateUser = JSON.parse(ajax.response).code === 200 ? true : false; 
+
+                if (validateUser) {
+                    alert(JSON.parse(ajax.response).message);
+                    window.location.href = "/";
+                } else {
+                    alert(JSON.parse(ajax.response).message);
+                }
             }
         
         ajax.send(login);
