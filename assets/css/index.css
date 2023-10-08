@@ -603,6 +603,32 @@ svg {
     margin: auto .5em;
 }
 
+.content-admin {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.column-nav {
+    background-color: #6092af;
+}
+
+.content-admin .column-nav {
+    flex-direction: column;
+}
+
+.column-nav .content-nav {
+    text-align: center;
+}
+
+.content-nav .list-column li {
+    margin: 1em;
+}
+
+.content-admin .content-view {
+    
+}
+
 @media(max-width: 920px) {
     .nav-menu .logo {
         width: auto;
