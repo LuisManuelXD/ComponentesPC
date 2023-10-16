@@ -537,6 +537,91 @@ svg {
     width: 100%;
 }
 
+.nav-admin {
+    width: 20em;
+    display: flex;
+    height: 100%;
+}
+
+.nav-admin__link {
+    color: #fff;
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-admin__link:hover {
+    background: #7a7a7a;
+}
+
+.nav-admin__link--inside {
+    border-radius: 6px;
+    padding-left: 20px;
+    text-align: left;
+    font-weight: 100;
+}
+
+.nav-admin .list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0 16px 16px 0;
+    background-color: #191b24;
+    padding: 20vh 0;
+}
+
+.list__item {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.list__item--click{
+    cursor: pointer;
+}
+
+.list__button{
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.arrow .fa-chevron-right {
+    transform: rotate(90deg);
+}
+
+.fa-chevron-right {
+    margin-left: auto;
+    transition: transform .3s;
+}
+
+.list__show {
+    width: 80%;
+    margin-left: auto;
+    border-left: 2px solid #b5b5b5;
+    list-style: none;
+    transition: height .4s;
+    height: 0;
+}
+
+/* .minimize__button--click {
+    text-decoration: none;
+    margin: auto -1.5em;
+    
+}
+
+.minimize__button--click i {
+    background-color: #adadad;
+    padding: 1em 1.2em;
+    border-radius: 100%;
+} */
+
 @keyframes slide {
     0% {
         margin-left: 0;
@@ -647,10 +732,6 @@ svg {
     font-weight: 500;
     font-size: 1em;
 }
-
-/* .content-admin .content-view {
-    
-} */
 
 @media(max-width: 920px) {
     .nav-menu .logo {
