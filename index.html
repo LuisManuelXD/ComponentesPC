@@ -7,35 +7,13 @@
     <link rel="icon" href="/assets/img/favicon.ico" />
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/components/landing/Header.js"></script>
+    <script src="/components/landing/Footer.js"></script>
     <title>PC comoponets shop</title>
 </head>
 
 <body>
-    <header>
-        <nav class="nav-menu">
-            <input type="checkbox" id="toggle">
-            <div class="logo">
-                <a href="/">
-                    <img src="/assets/img/logo.png" width="40px">
-                </a>
-                <a href="/">
-                    <p>Componentes PC</p>
-                </a>
-            </div>
-            <ul class="list">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/pages/products/productos.html">Productos</a></li>
-                <li><a href="/pages/user/registro.html">Registro</a></li>
-                <li><a href="/pages/login.html">login</a></li>
-                <li><a href="#">Salir</a></li>
-            </ul>
-            <label for="toggle" class="icon-bars">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </label>
-        </nav>
-    </header>
+    <header-page></header-page>
     <section class="sliders-advertisements">
         <div class="slider-box">
             <ul>
@@ -81,30 +59,7 @@
             <a class="button" href="#">Productos</a>
         </section>
     </section>
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-row">
-                <div class="footer-links">
-                    <h4>Datos</h4>
-                    <h5>Nombre: </h5>
-                    <p>Luis Manuel Rios Torres - 4 P</p>
-                    <h5>Materias:</h5>
-                    <p>Desarrollo web I,</p>
-                    <p>Base de datos I</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Navegacion</h4>
-                    <ul>
-                        <li><a href="/">Inicio</a></li>
-                        <li><a href="/pages/products/productos.html">Productos</a></li>
-                        <li><a href="/pages/user/registro.html">Registro</a></li>
-                        <li><a href="/pages/login.html">login</a></li>
-                        <li><a href="#">Salir</a></li>
-                    </ul>
-                </div>  
-            </div>
-        </div>
-    </footer>
+    <footer-page></footer-page>
 </body>
 
 </html>

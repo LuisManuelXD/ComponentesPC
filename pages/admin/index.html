@@ -7,42 +7,22 @@
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/fontawesome/css/all.css">
+    <script src="/components/landing/Header.js"></script>
+    <script src="/components/landing/Footer.js"></script>
+    <script src="/components/admin/Nav.js"></script>
     <title>PC comoponets shop</title>
   </head>
   <body>
-    <header>
-      <nav class="nav-menu">
-        <input type="checkbox" id="toggle" />
-        <div class="logo">
-          <a href="/">
-            <img src="/assets/img/logo.png" width="40px" />
-          </a>
-          <a href="/">
-            <p>Componentes PC</p>
-          </a>
-        </div>
-        <ul class="list">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/pages/products/productos.html">Productos</a></li>
-          <li><a href="/pages/user/registro.html">Registro</a></li>
-          <li><a href="/pages/login.html">login</a></li>
-          <li><a href="#">Salir</a></li>
-        </ul>
-        <label for="toggle" class="icon-bars">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </label>
-      </nav>
-    </header>
+    <header-page></header-page>
     <section>
       <div class="content-admin">
-        <nav class="nav-admin">
+        <nav-page></nav-page>
+        <!-- <nav class="nav-admin">
             <ul class="list">
               <li class="list__item">
                 <div class="list__button">
                   <i class="fa-solid fa-house" style="color: #fff;"></i>
-                  <a href="#" class="nav-admin__link">Inicio</a>
+                  <a href="/pages/admin/" class="nav-admin__link">Inicio</a>
                 </div>
               </li>
               <li class="list__item list__item--click">
@@ -53,10 +33,10 @@
                 </div>
                 <ul class="list__show">
                   <li class="list__inside">
-                    <a href="" class="nav-admin__link nav-admin__link--inside">Estoy dentro productos</a>
+                    <a href="/pages/admin/products/" class="nav-admin__link nav-admin__link--inside">Productos</a>
                   </li>
                   <li class="list__inside">
-                    <a href="" class="nav-admin__link nav-admin__link--inside">Estoy dentro productos</a>
+                    <a href="/pages/admin/products/register.html" class="nav-admin__link nav-admin__link--inside">Registrar producto</a>
                   </li>
                   <li class="list__inside">
                     <a href="" class="nav-admin__link nav-admin__link--inside">Estoy dentro productos</a>
@@ -71,10 +51,10 @@
                 </div>
                 <ul class="list__show">
                   <li class="list__inside">
-                    <a href="" class="nav-admin__link nav-admin__link--inside">Estoy dentro Usuarios</a>
+                    <a href="/pages/admin/" class="nav-admin__link nav-admin__link--inside">Usuarios</a>
                   </li>
                   <li class="list__inside">
-                    <a href="" class="nav-admin__link nav-admin__link--inside">Estoy dentro Usuarios</a>
+                    <a href="/pages/admin/users/register.html" class="nav-admin__link nav-admin__link--inside">Registrar usuario</a>
                   </li>
                   <li class="list__inside">
                     <a href="" class="nav-admin__link nav-admin__link--inside">Estoy dentro Usuarios</a>
@@ -88,39 +68,16 @@
                 </div>
               </li>
             </ul>
-            <!-- <a href="#" class="minimize__button--click">
+            <a href="#" class="minimize__button--click">
               <i class="fa-solid fa-chevron-right" style="color: #000;"></i>
-            </a> -->
-        </nav>
+            </a>
+        </nav> -->
         <div class="content-view">
           <h1>Contenido info</h1>
         </div>
       </div>
     </section>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-row">
-          <div class="footer-links">
-            <h4>Datos</h4>
-            <h5>Nombre:</h5>
-            <p>Luis Manuel Rios Torres - 4 P</p>
-            <h5>Materias:</h5>
-            <p>Desarrollo web I,</p>
-            <p>Base de datos I</p>
-          </div>
-          <div class="footer-links">
-            <h4>Navegacion</h4>
-            <ul>
-              <li><a href="/">Inicio</a></li>
-              <li><a href="/pages/products/productos.html">Productos</a></li>
-              <li><a href="/pages/user/registro.html">Registro</a></li>
-              <li><a href="/pages/login.html">Login</a></li>
-              <li><a href="#">Salir</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <footer-page></footer-page>
   </body>
   <script src="/assets/js/nav.js"></script>
 </html>
