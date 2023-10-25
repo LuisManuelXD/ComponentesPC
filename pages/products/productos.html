@@ -15,31 +15,6 @@
 
 <body>
     <header-page></header-page>
-    <!-- <header>
-        <nav class="nav-menu">
-            <input type="checkbox" id="toggle">
-            <div class="logo">
-                <a href="/">
-                    <img src="/assets/img/logo.png" width="40px">
-                </a>
-                <a href="/">
-                    <p>Componentes PC</p>
-                </a>
-            </div>
-            <ul class="list">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/pages/products/productos.html">Productos</a></li>
-                <li><a href="/pages/user/registro.html">Registro</a></li>
-                <li><a href="/pages/login.html">login</a></li>
-                <li><a href="#">Salir</a></li>
-            </ul>
-            <label for="toggle" class="icon-bars">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </label>
-        </nav>
-    </header> -->
     <section class="main">
         <section class="product-search">
             <div class="bar-search">
@@ -55,95 +30,9 @@
                 </form>
             </div>
         </section>
-        <section class="list-products">
-            <div class="product">
-                <div class="product-image">
-                    <a title="Titulo del producto" href="/pages/products/product-item.html">
-                        <img src="/assets/img/table.png" alt="">
-                    </a>
-                </div>
-                <div class="product-info">
-                    <h4>
-                        <a title="Titulo del producto" href="/pages/products/product-item.html">Titulo del producto
-                            Titulo del producto Titulo del producto</a>
-                    </h4>
-                    <div class="product-price">
-                        <span class="price">$5,499.00</span>
-                    </div>
-                    <div class="span-group stock">
-                        <span class="label label-icon with-stock">
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            CON EXISTENCIA
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="product">
-                <div class="product-image">
-                    <a title="Titulo del producto" href="#">
-                        <img src="/assets/img/llamaTactica.png" alt="">
-                    </a>
-                </div>
-                <div class="product-info">
-                    <h4>
-                        <a href="#">Titulo del producto</a>
-                    </h4>
-                    <div class="product-price">
-                        <span class="price">$5,499.00</span>
-                    </div>
-                    <div class="stock">
-                        <span class="label label-icon with-stock">
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            CON EXISTENCIA
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="product">
-                <div class="product-image">
-                    <a title="Titulo del producto" href="#">
-                        <img src="/assets/img/llamaTactica.png" alt="">
-                    </a>
-                </div>
-                <div class="product-info">
-                    <h4>
-                        <a href="#">Titulo del producto</a>
-                    </h4>
-                    <div class="product-price">
-                        <span class="price">$5,499.00</span>
-                    </div>
-                    <div class="span-group stock">
-                        <span class="label label-icon with-stock">
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            CON EXISTENCIA
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="product">
-                <div class="product-image">
-                    <a title="Titulo del producto" href="#">
-                        <img src="/assets/img/llamaTactica.png" alt="">
-                    </a>
-                </div>
-                <div class="product-info">
-                    <h4>
-                        <a href="#">Titulo del producto Titulo del producto Titulo del producto</a>
-                    </h4>
-                    <div class="product-price">
-                        <span class="price">$5,499.00</span>
-                    </div>
-                    <div class="span-group stock">
-                        <span class="label label-icon with-stock">
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            CON EXISTENCIA
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="cards" class="list-products"></section>
     </section>
     <footer-page></footer-page>
 </body>
-
+<script src="/js/admin/products/Product.js"></script>
 </html>
