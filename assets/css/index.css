@@ -377,8 +377,12 @@ body {
     margin-bottom: 1em;
 }
 
-.stock span {
+.stock__available span {
     background-color: #1765be;
+}
+
+.stock__without-existence span {
+    background-color: #777;
 }
 
 .fa {
