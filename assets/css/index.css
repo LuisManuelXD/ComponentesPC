@@ -20,7 +20,7 @@ body {
 }
 
 .main {
-    margin-bottom: 60px;
+    /* margin-bottom: 60px; */
     padding: 1em 2.5em;
 }
 
@@ -625,6 +625,16 @@ svg {
     padding: 1em 1.2em;
     border-radius: 100%;
 } */
+
+.card-search {
+    text-align: center;
+    margin: 1rem;
+}
+
+.card-search img {
+    margin: 1rem;
+    max-width: 15rem
+}
 
 @keyframes slide {
     0% {
