@@ -17,7 +17,7 @@ class Header extends HTMLElement {
           </div>
           <ul class="list">
             <li><a href="/">Inicio</a></li>
-            <li><a href="/pages/products/productos.html">Productos</a></li>
+            <li><a href="/pages/products/">Productos</a></li>
             <li><a href="/pages/user/registro.html">Registro</a></li>
             <li><a href="/pages/login.html">login</a></li>
             <li><a href="#">Salir</a></li>

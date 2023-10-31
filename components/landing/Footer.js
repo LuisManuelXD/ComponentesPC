@@ -19,7 +19,7 @@ class Footer extends HTMLElement {
               <h4>Navegacion</h4>
               <ul>
                 <li><a href="/">Inicio</a></li>
-                <li><a href="/pages/products/productos.html">Productos</a></li>
+                <li><a href="/pages/products/">Productos</a></li>
                 <li><a href="/pages/user/registro.html">Registro</a></li>
                 <li><a href="/pages/login.html">Login</a></li>
               </ul>
