@@ -22,7 +22,7 @@
               <i class="fa fa-search fa-2x"></i>
             </span>
           </div>
-          <form id="formSearch" method="GET" action="">
+          <div class="form-search">
             <div class="input-search">
               <input
                 class="controls"
@@ -33,11 +33,69 @@
                 autocomplete="off"
               />
             </div>
-          </form>
+          </div>
         </div>
       </section>
-      <section id="cards" class="list-products">
-        
+      <section id="cards" class="list-products"></section>
+      <section class="modal">
+        <div class="modal__container">
+          <a href="#" class="modal__close">
+            <i class="fa-2x fa-solid fa-close" style="color: #000;"></i>
+          </a>
+          <div class="product-item">
+            <div class="conteiner-items">
+              <div class="product-item-image">
+                <div class="content-image">
+                  <img src="/assets/img/table.png" alt="" />
+                </div>
+              </div>
+              <div class="pruduct-item-info">
+                <h3>
+                  Titulo del producto Titulo del producto Titulo del producto
+                  Titulo del producto Titulo del producto Titulo del producto
+                  Titulo del producto Titulo del producto
+                </h3>
+                <div class="product-item-available">
+                  <h5>
+                    DISPONIBLES:
+                    <p>10</p>
+                  </h5>
+                </div>
+                <div class="product-item-price">
+                  <p>$5,499.00</p>
+                </div>
+                <div class="product-item-trolley">
+                  <form action="#" method="POST">
+                    <span>Cantidad: </span>
+                    <input
+                      class="controls"
+                      type="number"
+                      id="txtCantidad"
+                      name="txtCantidad"
+                      placeholder="Cantidad"
+                      min="1"
+                      value="1"
+                      required
+                    />
+                    <div class="btn-car">
+                      <i class="fa fa-shopping-cart"></i>
+                      <input
+                        type="submit"
+                        id="btnAgregar"
+                        name="btnAgregar"
+                        value="Agregar al carrito"
+                      />
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="product-item-description">
+              <p>Esto es una descripcion</p>
+              <!-- <img src="/assets/img/table-description.png" alt="" /> -->
+            </div>
+          </div>
+        </div>
       </section>
     </section>
     <footer-page></footer-page>

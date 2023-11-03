@@ -1,5 +1,8 @@
 let search = '';
 let products;
+const modal = document.querySelector('.modal');
+const closeModal = document.querySelector('.modal__close');
+const openModal = document.querySelector("#cards");
 let inputSearch = document.querySelector("#txtSearch");
 
 getProducts();
@@ -12,19 +15,21 @@ function getProducts(searchTerm = '') {
         ajax.onload = function() {
             products = JSON.parse( ajax.response );
             let templateCards = '';
+            let foundMatch = false;
 
             products.forEach(product => {
               if(product.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                foundMatch = true;
                 if(parseInt(product.available) > 0) {
-                    templateCards += `<div id="${product.id}" class="product">
+                  templateCards += `<div id="${product.id}" class="product">
                     <div class="product-image">
-                      <a title="${product.name}" href="/pages/products/item/${product.id}">
-                        <img src="/assets/img/llamaTactica.png" alt="" />
+                      <a title="${product.name}">
+                        <img class="product__modal" src="/assets/img/llamaTactica.png" alt="" />
                       </a>
                     </div>
                     <div class="product-info">
                       <h4>
-                        <a href="/pages/products/item/${product.id}">${product.name}</a>
+                        <a class="product__modal">${product.name}</a>
                       </h4>
                       <div class="product-price">
                         <span class="price">$${product.price}</span>
@@ -38,15 +43,15 @@ function getProducts(searchTerm = '') {
                     </div>
                   </div>`;
                 } else {
-                    templateCards += `<div id="${product.id}" class="product">
+                  templateCards += `<div id="${product.id}" class="product">
                     <div class="product-image">
-                      <a title="${product.name}" href="/pages/products/item/${product.id}">
+                      <a title="${product.name}">
                         <img src="/assets/img/llamaTactica.png" alt="" />
                       </a>
                     </div>
                     <div class="product-info">
                       <h4>
-                        <a href="/pages/products/item/${product.id}">${product.name}</a>
+                        <a>${product.name}</a>
                       </h4>
                       <div class="product-price">
                         <span class="price">$${product.price}</span>
@@ -60,22 +65,37 @@ function getProducts(searchTerm = '') {
                     </div>
                   </div>`;
                 }
-              } else {
-                templateCards = `<div class="card-search">
+              }
+            });
+
+            if (!foundMatch) {
+              templateCards = `<div class="card-search">
                 <img
                   src="/assets/svg/illustrations/oc-lost.svg"
                   alt="Image Description"
                 />
                 <h3>Por el momento no tenemos resultados para esta búsqueda.</h3>
               </div>`;
-              }
-            });
+            }
             cards.innerHTML = templateCards;
         }
         ajax.send();
 }
 
 inputSearch.addEventListener('keyup', (e) => {
+  e.preventDefault();
   search = e.target.value;
   getProducts(search);
+});
+
+openModal.addEventListener('click', function(e) {
+  if(e.target && e.target.classList.contains('product__modal')) {
+    e.preventDefault();
+    modal.classList.add('modal--show');
+  }
+});
+
+closeModal.addEventListener('click', (e) => {
+  e.preventDefault();
+  modal.classList.remove('modal--show');
 });
