@@ -412,7 +412,7 @@ svg {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 75%;
+    width: 90%;
     margin: 0 auto;
     padding: 1em 2em;
 }
@@ -693,7 +693,7 @@ svg {
     color: #000;
 }
 
-.bar-search form {
+.form-search {
     width: 91%;
 }
 
@@ -745,6 +745,52 @@ svg {
     text-decoration: none;
     font-weight: 500;
     font-size: 1em;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+    --transform: translateY(-100vh);
+    --transition: transform .5s;
+}
+
+.modal--show {
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .3s;
+    --transform: translateY(0);
+    --transition: transform .5s;
+}
+
+.modal__container {
+    margin: auto;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90%;
+    background-color: #CFCFC6;
+    border-radius: 1em;
+    padding: 2em 0;
+    transform: var(--transform);
+    transition: var(--transition);
+    overflow: scroll;
+    scrollbar-color: red orange;
+    scrollbar-width: thin;
+}
+
+.modal__close {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0 2em;
 }
 
 @media(max-width: 920px) {
@@ -867,5 +913,14 @@ svg {
 
     .iconSearch {
         margin: auto 0;
+        padding-right: .4em;
+    }
+
+    .bar-search input[type=search] {
+        margin: auto 0;
+    }
+
+    .modal__container {
+        padding: 2em 1em;
     }
 }
