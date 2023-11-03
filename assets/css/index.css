@@ -781,9 +781,15 @@ svg {
     padding: 2em 0;
     transform: var(--transform);
     transition: var(--transition);
-    overflow: scroll;
+    overflow-y: scroll;
     scrollbar-color: red orange;
     scrollbar-width: thin;
+}
+
+.modal__container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    display: none;
 }
 
 .modal__close {
