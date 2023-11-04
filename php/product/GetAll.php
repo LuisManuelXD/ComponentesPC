@@ -1,7 +1,7 @@
 <?php
 include "../conexion.php";
 
-$em = "select *from product";
+$em = "select *from product ORDER BY available DESC";
 $query = mysqli_query($conexion, $em);
 
 if(!$query)
