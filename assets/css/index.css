@@ -439,6 +439,7 @@ svg {
 .pruduct-item-info {
     display: inline-block;
     justify-content: space-between;
+    width: 100%;
 }
 
 .product-item-info-content {
@@ -456,6 +457,8 @@ svg {
 
 .product-item-trolley form {
     margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
 }
 
 .product-item-trolley label {
@@ -506,10 +509,18 @@ svg {
     margin: auto .5em;
     color: #000;
     width: 6em;
+    height: 3em;
 }
 
 .product-item-trolley input[type=submit] {
-    padding: .5em 2em;
+    padding: 1em 0;
+}
+
+.product-item-trolley .btn-car {
+    display: flex;
+    align-items: center;
+    border: 2px solid #b5b5b5;
+    justify-content: space-evenly;
 }
 
 .sliders-advertisements {
@@ -893,7 +904,6 @@ svg {
 
     .product-item-image {
         display: block;
-        /* margin: 0 auto; */
     }
 
     .product-item-description img {
