@@ -939,4 +939,9 @@ svg {
     .modal__container {
         padding: 2em 1em;
     }
+
+    .nav-admin {
+        width: 2em;
+        transition: width .4s;
+    }
 }
