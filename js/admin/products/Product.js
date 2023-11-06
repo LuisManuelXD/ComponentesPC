@@ -1,6 +1,8 @@
-getProducts();
-
+// getProducts();
 let form = document.querySelector('#productForm');
+const btnImage = document.querySelector('#btnImage');
+const imgView = document.querySelector('#imgView');
+
 form.onsubmit = function(e) {
     let name = document.querySelector('#txtName').value;
     let price = document.querySelector('#txtPrice').value;
@@ -27,6 +29,21 @@ form.onsubmit = function(e) {
         ajax.send(product);
     }
 }
+
+btnImage.addEventListener("change", function (e) {
+  let file = e.target.files[0];
+  let reader = new FileReader();
+
+  reader.onload = function() {
+    document.getElementById('imgView').src = reader.result;
+  }
+
+  if(file) {
+    reader.readAsDataURL(file);
+  } else {
+    document.getElementById('imgView').src = "";
+  }
+});
 
 function getProducts() {
     let cards = document.querySelector("#cards");
