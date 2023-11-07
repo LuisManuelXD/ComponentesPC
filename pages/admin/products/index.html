@@ -17,10 +17,58 @@
     <section>
       <div class="content-admin">
         <nav-page></nav-page>
-        <!-- <div class="content-view">
+        <div class="content-view">
           <h1>Productos</h1>
-        </div> -->
-        <section id="cards" class="list-products"></section>
+        </div>
+        <section class="table-admin">
+          <table>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Disponibles</th>
+                <th>Descripción</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="tableProducts">
+              <tr>
+                <td>1</td>
+                <td>GPU Nvidea</td>
+                <td>$5000.00</td>
+                <td>14</td>
+                <td>Es una GPU que te da mucha potencia.</td>
+                <td>
+                  <button id="btnEditar" onclick="modificarTarea(product)" title="Presiona este botón para comenzar a modificar este producto."><i class="fa fa-edit fa-2x" style="color: blue;"></i></button>
+                  <button id="btnBorrar" onclick="borrarTarea(product)" title="Presiona este botón para eliminar este producto."><i class="fa fa-trash fa-2x" style="color: red;"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>GPU Nvidea GPU Nvidea</td>
+                <td>$500000.00</td>
+                <td>14</td>
+                <td>Es una GPU que te da mucha potencia. Es una GPU que te da mucha potencia.</td>
+                <td>
+                  <button id="btnEditar" onclick="modificarTarea(product)" title="Presiona este botón para comenzar a modificar este producto."><i class="fa fa-edit fa-2x" style="color: blue;"></i></button>
+                  <button id="btnBorrar" onclick="borrarTarea(product)" title="Presiona este botón para eliminar este producto."><i class="fa fa-trash fa-2x" style="color: red;"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>GPU Nvidea GPU Nvidea GPU Nvidea</td>
+                <td>$50000000.00</td>
+                <td>14</td>
+                <td>Es una GPU que te da mucha potencia. Es una GPU que te da mucha potencia. Es una GPU que te da mucha potencia.</td>
+                <td>
+                  <button id="btnEditar" onclick="modificarTarea(product)" title="Presiona este botón para comenzar a modificar este producto."><i class="fa fa-edit fa-2x" style="color: blue;"></i></button>
+                  <button id="btnBorrar" onclick="borrarTarea(product)" title="Presiona este botón para eliminar este producto."><i class="fa fa-trash fa-2x" style="color: red;"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
       </div>
     </section>
     <footer-page></footer-page>
