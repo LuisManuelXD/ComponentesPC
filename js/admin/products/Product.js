@@ -34,14 +34,18 @@ btnImage.addEventListener("change", function (e) {
   let file = e.target.files[0];
   let reader = new FileReader();
 
-  reader.onload = function() {
-    document.getElementById('imgView').src = reader.result;
-  }
+  if(file && (file.type == "image/jpeg" || file.type == "image/png")) {
+    reader.onload = function() {
+      document.getElementById('imgView').src = reader.result;
+    }
 
-  if(file) {
+    document.getElementById('imgView').style.display = 'block';
     reader.readAsDataURL(file);
   } else {
+    e.target.value = "";
     document.getElementById('imgView').src = "";
+    document.getElementById('imgView').style.display = 'none';
+    alert("Por favor, selecciona una imagen .jpg o .png");
   }
 });
 
