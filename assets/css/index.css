@@ -831,6 +831,24 @@ svg {
     color: white;
 }
 
+.btnOption {
+ display: flex;
+}
+
+.btnOption #btnEditar {
+    border: .1em solid #6d85a5;
+    padding: .8em 1em;
+    margin: 0 .2em;
+    cursor: pointer;
+}
+
+.btnOption #btnBorrar {
+    border: .1em solid #6d85a5;
+    padding: .8em 1em;
+    margin: 0 .2em;
+    cursor: pointer;
+}
+
 @media(max-width: 920px) {
     .nav-menu .logo {
         width: auto;

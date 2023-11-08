@@ -1,7 +1,10 @@
-// getProducts();
+getProducts();
 let form = document.querySelector('#productForm');
 const btnImage = document.querySelector('#btnImage');
 const imgView = document.querySelector('#imgView');
+const modal = document.querySelector(".modal");
+const closeModal = document.querySelector(".modal__close");
+const openModal = document.querySelector("#tableProducts");
 
 form.onsubmit = function(e) {
     let name = document.querySelector('#txtName').value;
@@ -50,63 +53,83 @@ btnImage.addEventListener("change", function (e) {
 });
 
 function getProducts() {
-    let cards = document.querySelector("#cards");
+    let table = document.querySelector("#tableProducts");
 
     let ajax = new XMLHttpRequest();
-        ajax.open( 'get', '/php/product/GetAll.php', true );
+        ajax.open( 'get', '/php/admin/product/GetAll.php', true );
         ajax.onload = function() {
             let products = JSON.parse( ajax.response );
             console.log(products);
             let templateCards = '';
 
             products.forEach(product => {
-                if(parseInt(product.available) > 0) {
-                    templateCards += `<div id="${product.id}" class="product">
-                    <div class="product-image">
-                      <a title="${product.name}" href="#">
-                        <img src="/assets/img/llamaTactica.png" alt="" />
-                      </a>
-                    </div>
-                    <div class="product-info">
-                      <h4>
-                        <a href="#">${product.name}</a>
-                      </h4>
-                      <div class="product-price">
-                        <span class="price">$${product.price}</span>
-                      </div>
-                      <div class="stock stock__available">
-                        <span class="label label-icon with-stock">
-                          <i class="fa fa-check" aria-hidden="true"></i>
-                          CON EXISTENCIA
-                        </span>
-                      </div>
-                    </div>
-                  </div>`;
-                } else {
-                    templateCards += `<div id="${product.id}" class="product">
-                    <div class="product-image">
-                      <a title="${product.name}" href="#">
-                        <img src="/assets/img/llamaTactica.png" alt="" />
-                      </a>
-                    </div>
-                    <div class="product-info">
-                      <h4>
-                        <a href="#">${product.name}</a>
-                      </h4>
-                      <div class="product-price">
-                        <span class="price">$${product.price}</span>
-                      </div>
-                      <div class="stock stock__without-existence">
-                        <span class="label label-icon with-stock">
-                          <i class="fa fa-times" aria-hidden="true"></i>
-                          SIN EXISTENCIA
-                        </span>
-                      </div>
-                    </div>
-                  </div>`;
-                }
+              templateCards += `<tr id="${product.id}">
+                <td>${product.id}</td>
+                <td>${product.name}</td>
+                <td>${product.price}</td>
+                <td>${product.available}</td>
+                <td>${product.description}</td>
+                <td class="btnOption">
+                  <div id="btnEditar" class="product__modal__edit" data-id="${product.id}">
+                    <a href="#" class="product__modal__edit" title="Presiona este botón para comenzar a modificar este producto." data-id="${product.id}"><i data-id="${product.id}" class="fa fa-edit fa-1 product__modal__edit" style="color: blue;"></i></a>
+                  </div>
+                  <button id="btnBorrar" onclick="deleteProduct(${product.id})" href="#" class="product__modal__delete" title="Presiona este botón para eliminar este producto."><i class="fa fa-trash fa-1" style="color: red;"></i></button>
+                </td>
+              </tr>`;
             });
-            cards.innerHTML = templateCards;
+            table.innerHTML = templateCards;
         }
         ajax.send();
+}
+
+openModal.addEventListener("click", function (e) {
+  if (e.target && e.target.classList.contains("product__modal__edit")) {
+    const productId = e.target.getAttribute("data-id");
+    getEditProduct(productId);
+    modal.classList.add("modal--show");
+  }
+  e.preventDefault();
+});
+
+closeModal.addEventListener("click", (e) => {
+  e.preventDefault();
+  modal.classList.remove("modal--show");
+});
+
+function getEditProduct(id) {
+  let name = document.querySelector('#txtName');
+  let price = document.querySelector('#txtPrice');
+  let available = document.querySelector('#txtAvailable');
+  let description = document.querySelector('#txtDescription');
+
+  let productId = new FormData();
+      productId.append('id', id);
+  
+      let ajax = new XMLHttpRequest();  
+      ajax.open( 'post', '/php/admin/product/Get.php', true );
+      ajax.onload = function() {
+        let products = JSON.parse(ajax.response);
+        products.forEach(product => {
+          document.querySelector('#txtId').value = product.id;
+          name.value = product.name;
+          price.value = product.price;
+          available.value = product.available;
+          description.value = product.description;
+        });
+      }
+      ajax.send(productId);
+}
+
+function deleteProduct(id) {
+  if (confirm('¿Estas seguro de eliminar el producto?')) {
+    let productId = new FormData();
+      productId.append('id', id);
+  
+    let ajax = new XMLHttpRequest();  
+        ajax.open( 'POST', '/php/admin/product/Delete.php', true );
+        ajax.onload = function() {
+          getProducts();
+        }
+        ajax.send(productId);
+  }
 }
