@@ -1,18 +1,19 @@
 <?php
 include "../../conexion.php";
 
+$id = $_POST['id'];
 $name = $_POST['name'];
 $description = $_POST['description'];
 $price = $_POST['price'];
 $available = $_POST['available'];
 $image_id = $_POST['image_id'];
 
-$em = "INSERT INTO product (name, price, available, description, image_id)
-VALUES ('$name', '$price', '$available', '$description', '$image_id')";
+$em = "UPDATE product SET name='$name', description='$description', price='$price',
+    available='$available', image_id='$image_id'
+    WHERE product.id='$id';";
 $query = mysqli_query($conexion, $em);
 
-if($query)
+if ($query)
     echo "Producto agregado";
 else
-    echo "Error" .$query ."<br>" .mysqli_error($conexion);
-?>
+    echo "Error" . $query . "<br>" . mysqli_error($conexion);

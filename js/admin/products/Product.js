@@ -5,30 +5,41 @@ const imgView = document.querySelector('#imgView');
 const modal = document.querySelector(".modal");
 const closeModal = document.querySelector(".modal__close");
 const openModal = document.querySelector("#tableProducts");
+let edit = false;
+let imageFile;
 
 form.onsubmit = function(e) {
+  let id = document.querySelector('#txtId').value;
     let name = document.querySelector('#txtName').value;
     let price = document.querySelector('#txtPrice').value;
     let available = document.querySelector('#txtAvailable').value;
     let description = document.querySelector('#txtDescription').value;
+    let imageId = document.querySelector('#hiddenImageId').value;
 
-    if(name == '' || price == '' || available == '' || description == '') {
+    if(name == '' || price == '' || available == '' || description == '' || !imageFile) {
         alert('Rellene los campos faltantes.');
         e.preventDefault();
     } else {
         let product = new FormData();
+        product.append('id', id);
         product.append('name', name);
         product.append('price', price);
         product.append('available', available);
         product.append('description', description);
+        product.append('image_id', imageId);
         e.preventDefault();
 
-        let ajax = new XMLHttpRequest();
-            ajax.open('post', '/php/product/Add.php', true);
-            ajax.onload = function() {
-                alert('Se a registrado con exito.');
-            }
+        let url = edit === false ? '../../php/admin/product/Add.php' : '../../php/admin/product/Edit.php';
+        console.log(url);
 
+        let ajax = new XMLHttpRequest();
+            ajax.open('post', url, true);
+            ajax.onload = function() {
+              if(edit === true) {
+                getProducts();
+              }
+              // alert('Se a registrado con exito.');
+            }
         ajax.send(product);
     }
 }
@@ -40,6 +51,18 @@ btnImage.addEventListener("change", function (e) {
   if(file && (file.type == "image/jpeg" || file.type == "image/png")) {
     reader.onload = function() {
       document.getElementById('imgView').src = reader.result;
+      imageFile = file;
+
+      let imageData = new FormData();
+      imageData.append('image', imageFile);
+
+      let ajaxImage = new XMLHttpRequest();
+      ajaxImage.open('post', '/php/image/Add.php', true);
+      ajaxImage.onload = function() {
+        let imageId = JSON.parse(this.responseText).id;
+        document.querySelector('#hiddenImageId').value = imageId;
+      }
+      ajaxImage.send(imageData);
     }
 
     document.getElementById('imgView').style.display = 'block';
@@ -87,13 +110,14 @@ openModal.addEventListener("click", function (e) {
     const productId = e.target.getAttribute("data-id");
     getEditProduct(productId);
     modal.classList.add("modal--show");
+    edit = true;
   }
   e.preventDefault();
 });
 
 closeModal.addEventListener("click", (e) => {
-  e.preventDefault();
   modal.classList.remove("modal--show");
+  e.preventDefault();
 });
 
 function getEditProduct(id) {
@@ -101,6 +125,7 @@ function getEditProduct(id) {
   let price = document.querySelector('#txtPrice');
   let available = document.querySelector('#txtAvailable');
   let description = document.querySelector('#txtDescription');
+  let image = document.querySelector('#imgView');
 
   let productId = new FormData();
       productId.append('id', id);
@@ -115,6 +140,8 @@ function getEditProduct(id) {
           price.value = product.price;
           available.value = product.available;
           description.value = product.description;
+          image.src = product.image;
+          image.style.display = 'block';
         });
       }
       ajax.send(productId);
