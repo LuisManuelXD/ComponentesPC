@@ -983,4 +983,8 @@ svg {
         width: 2em;
         transition: width .4s;
     }
+
+    .table-admin {
+        overflow-x: auto;
+    }
 }
