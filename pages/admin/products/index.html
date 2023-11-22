@@ -18,9 +18,9 @@
       <div class="content-admin">
         <nav-page></nav-page>
         <div class="content-view">
-          <h1>Productos</h1>
         </div>
         <section class="table-admin">
+          <h1>Productos</h1>
           <table>
             <thead>
               <tr>
@@ -33,39 +33,6 @@
               </tr>
             </thead>
             <tbody id="tableProducts">
-              <!-- <tr>
-                <td>1</td>
-                <td>GPU Nvidea</td>
-                <td>$5000.00</td>
-                <td>14</td>
-                <td>Es una GPU que te da mucha potencia.</td>
-                <td>
-                  <button id="btnEditar" onclick="modificarTarea(product)" title="Presiona este botón para comenzar a modificar este producto."><i class="fa fa-edit fa-2x" style="color: blue;"></i></button>
-                  <button id="btnBorrar" onclick="borrarTarea(product)" title="Presiona este botón para eliminar este producto."><i class="fa fa-trash fa-2x" style="color: red;"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>GPU Nvidea GPU Nvidea</td>
-                <td>$500000.00</td>
-                <td>14</td>
-                <td>Es una GPU que te da mucha potencia. Es una GPU que te da mucha potencia.</td>
-                <td>
-                  <button id="btnEditar" onclick="modificarTarea(product)" title="Presiona este botón para comenzar a modificar este producto."><i class="fa fa-edit fa-2x" style="color: blue;"></i></button>
-                  <button id="btnBorrar" onclick="borrarTarea(product)" title="Presiona este botón para eliminar este producto."><i class="fa fa-trash fa-2x" style="color: red;"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>GPU Nvidea GPU Nvidea GPU Nvidea</td>
-                <td>$50000000.00</td>
-                <td>14</td>
-                <td>Es una GPU que te da mucha potencia. Es una GPU que te da mucha potencia. Es una GPU que te da mucha potencia.</td>
-                <td>
-                  <button id="btnEditar" onclick="modificarTarea(product)" title="Presiona este botón para comenzar a modificar este producto."><i class="fa fa-edit fa-2x" style="color: blue;"></i></button>
-                  <button id="btnBorrar" onclick="borrarTarea(product)" title="Presiona este botón para eliminar este producto."><i class="fa fa-trash fa-2x" style="color: red;"></i></button>
-                </td>
-              </tr> -->
             </tbody>
           </table>
         </section>
@@ -74,8 +41,8 @@
             <a href="#" class="modal__close">
               <i class="fa-2x fa-solid fa-close" style="color: #000"></i>
             </a>
-            <div class="form-register">
-              <h4>Registrar producto</h4>
+            <div class="form-register" style="width: 95%;">
+              <h4>Modificar producto</h4>
               <input type="hidden" id="txtId" name="txtId">
               <form id="productForm">
                 <label for="txtName">Nombre:</label>
@@ -133,7 +100,8 @@
                   src="#"
                   style="padding: 0.5em; display: none"
                 />
-                <input class="botons" type="submit" value="Registrar producto" />
+                <input type="hidden" id="hiddenImageId" name="imageId">
+                <input class="botons" type="submit" value="Modificar producto" />
               </form>
             </div>
           </div>
