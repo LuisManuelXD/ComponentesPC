@@ -440,6 +440,7 @@ svg {
     display: inline-block;
     justify-content: space-between;
     width: 100%;
+    margin: auto 0;
 }
 
 .product-item-info-content {
