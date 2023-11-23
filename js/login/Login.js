@@ -15,14 +15,19 @@ form.onsubmit = function(e) {
         let ajax = new XMLHttpRequest();
             ajax.open('post', '/php/Login.php', true);
             ajax.onload = function() {
-                let validateUser = JSON.parse(ajax.response).code === 200 ? true : false; 
+                let validateUser = JSON.parse(ajax.response); 
 
-                if (validateUser) {
-                    alert(JSON.parse(ajax.response).message);
-                    window.location.href = "/";
-                } else {
-                    alert(JSON.parse(ajax.response).message);
-                }
+                validateUser.forEach(user => {
+                    if(user.code != '404' && user.admin == 1) {
+                        alert(user.message);
+                        window.location.href = "/pages/admin";
+                    } else if(user.code != '404' && user.admin == 0) {
+                        alert(user.message);
+                        window.location.href = "/";
+                    } else if(user.code == '404') {
+                        alert(user.message);
+                    }
+                });
             }
         
         ajax.send(login);
