@@ -3,7 +3,6 @@ include "../../conexion.php";
 
 $id = $_POST['id'];
 
-// $em = "select *from product where id='$id';";
 $em = "SELECT product.*, image.image FROM product JOIN image ON product.image_id = image.id WHERE product.id='$id';";
 $query = mysqli_query($conexion, $em);
 
