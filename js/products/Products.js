@@ -23,7 +23,7 @@ function getProducts(searchTerm = "") {
           templateCards += `<div id="${product.id}" class="product">
                     <div class="product-image">
                       <a title="${product.name}">
-                        <img class="product__modal" src="/assets/img/llamaTactica.png" data-id="${product.id}"/>
+                        <img class="product__modal" src="${product.image}" data-id="${product.id}"/>
                       </a>
                     </div>
                     <div class="product-info">
@@ -45,7 +45,7 @@ function getProducts(searchTerm = "") {
           templateCards += `<div id="${product.id}" class="product">
                     <div class="product-image">
                       <a title="${product.name}">
-                        <img class="product__modal" src="/assets/img/llamaTactica.png" data-id="${product.id}" />
+                        <img class="product__modal" src="${product.image}" data-id="${product.id}" />
                       </a>
                     </div>
                     <div class="product-info">
@@ -117,7 +117,7 @@ function getProduct(id) {
         templateModal = `<div class="conteiner-items">
                     <div class="product-item-image">
                       <div class="content-image">
-                        <img src="/assets/img/table.png" alt="" />
+                        <img src="${product.image}" alt="" />
                       </div>
                     </div>
                     <div class="pruduct-item-info">

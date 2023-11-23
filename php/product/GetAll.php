@@ -1,7 +1,7 @@
 <?php
 include "../conexion.php";
 
-$em = "select *from product ORDER BY available DESC";
+$em = "SELECT product.*, image.image FROM product JOIN image ON product.image_id = image.id ORDER BY available DESC;";
 $query = mysqli_query($conexion, $em);
 
 if(!$query)
@@ -14,7 +14,9 @@ while ($row = mysqli_fetch_array($query)) {
         'name' => $row['name'],
         'price' => $row['price'],
         'available' => $row['available'],
-        'description' => $row['description']
+        'description' => $row['description'],
+        'image_id' => $row['image_id'],
+        'image' => $row['image']
     );
 }
     
