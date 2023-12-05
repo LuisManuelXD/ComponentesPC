@@ -20,9 +20,11 @@ form.onsubmit = function(e) {
                 validateUser.forEach(user => {
                     if(user.code != '404' && user.admin == 1) {
                         alert(user.message);
+                        sessionStorage.setItem("email", user.email);
                         window.location.href = "/pages/admin";
                     } else if(user.code != '404' && user.admin == 0) {
                         alert(user.message);
+                        sessionStorage.setItem("email", user.email);
                         window.location.href = "/";
                     } else if(user.code == '404') {
                         alert(user.message);
