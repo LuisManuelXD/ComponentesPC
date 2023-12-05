@@ -8,6 +8,8 @@ require 'PHPMailer/SMTP.php';
 
 require('fpdf/fpdf.php');
 
+$email = $_POST['email'];
+
 //establece la fecha en la que se maneja la página
 date_default_timezone_set("America/Mexico_City");
 
@@ -75,7 +77,7 @@ $pdf -> Cell(0, 10, utf8_decode('© 2023 "Componentes PC"'), 0, 0, 'C');
 $pdf -> SetTextColor(0, 0, 0);
   
 $fechaYHora = date("d-m-y-His");
-$nombreArchivo = '-' . $fechaYHora . '.pdf';
+$nombreArchivo = $email . '-' . $fechaYHora . '.pdf';
 //salida de archivo en carpeta actual y nombre
 $pdf -> Output('F', $nombreArchivo);
 
@@ -102,7 +104,7 @@ try {
     );
 
     $mail->setFrom('riostorresGamer@gmail.com', 'Componentes PC');
-    $mail->addAddress('a22110096@ceti.mx');
+    $mail->addAddress($email);
     $mail->addAttachment($nombreArchivo);
 
     $mail->isHTML(true);
