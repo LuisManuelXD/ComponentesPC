@@ -49,6 +49,21 @@ class Nav extends HTMLElement {
             <a href="/pages/admin/orders/" class="nav-admin__link">Pedidos</a>
             </div>
         </li>
+        <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+                <i class="fa-solid fa-users" style="color: #fff;"></i>
+                <a href="#" class="nav-admin__link">Provedores</a>
+                <i class="fa-solid fa-chevron-right" style="color: #fff;"></i>
+            </div>
+            <ul class="list__show">
+                <li class="list__inside">
+                    <a href="/pages/admin/providers/" class="nav-admin__link nav-admin__link--inside">Provedores</a>
+                </li>
+                <li class="list__inside">
+                    <a href="/pages/admin/providers/register.html" class="nav-admin__link nav-admin__link--inside">Registrar provedores</a>
+                </li>
+            </ul>
+        </li>
         </ul>
     </nav>`;
   }

@@ -18,15 +18,21 @@ form.onsubmit = function(e) {
                 let validateUser = JSON.parse(ajax.response); 
 
                 validateUser.forEach(user => {
-                    if(user.code != '404' && user.admin == 1) {
+                    if(user.code != '404') {
+                        let userData = {
+                            id: user.id,
+                            email: user.email,
+                            admin: user.admin
+                        };
+                        sessionStorage.setItem("user", JSON.stringify(userData));
                         alert(user.message);
-                        sessionStorage.setItem("email", user.email);
-                        window.location.href = "/pages/admin";
-                    } else if(user.code != '404' && user.admin == 0) {
-                        alert(user.message);
-                        sessionStorage.setItem("email", user.email);
-                        window.location.href = "/";
-                    } else if(user.code == '404') {
+
+                        if(user.admin == 1) {
+                            window.location.href = "/pages/admin";
+                        } else {
+                            window.location.href = "/";
+                        }
+                    } else {
                         alert(user.message);
                     }
                 });

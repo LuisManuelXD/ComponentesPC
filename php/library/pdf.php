@@ -8,7 +8,22 @@ require 'PHPMailer/SMTP.php';
 
 require('fpdf/fpdf.php');
 
+include "../conexion.php";
+
+$user_id = $_POST['user_id'];
 $email = $_POST['email'];
+
+$em = "SELECT cart.items, product.name, product.price, user.firstName, user.lastName
+    from cart
+    JOIN user ON cart.user_id = user.id
+    JOIN product ON cart.product_id = product.id
+    WHERE user.id = $user_id;";
+$query = mysqli_query($conexion, $em);
+$query2 = mysqli_query($conexion, $em);
+
+
+if(!$query)
+    die ("Fallo la conexion." . mysqli_error($conexion));
 
 //establece la fecha en la que se maneja la página
 date_default_timezone_set("America/Mexico_City");
@@ -18,6 +33,15 @@ $diasSemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","S
 $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 
 $fechaActual = $diasSemana[date('w')]." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') ;
+$firstName = "";
+$lastName = "";
+$total = 0;
+
+while ($row = mysqli_fetch_array($query2)) {
+    $firstName = $row[3];
+    $lastName = $row[4];
+    break;
+}
 
 // Crear un nuevo PDF con FPDF
 //crear archivo pdf
@@ -34,7 +58,6 @@ $pdf -> SetFont('Arial', 'B', 26);
 $pdf -> SetTextColor(255, 0, 0);
 $pdf -> Cell(0, 15, 'Componentes PC ', 0, 1, 'C');
 $pdf -> SetTextColor(0, 0, 0);
-//$pdf -> Cell(0, 15, '       Bicicletas y Accesorios RVL', 0, 1);
 $pdf -> SetFont('Arial', 'B', 18);
 $pdf -> Ln(0.2);
 $pdf -> Cell(0, 15, 'Componentes PC agradece su compra', 0, 1, 'C');
@@ -43,7 +66,7 @@ $pdf -> Ln();
 //agregar texto
 $pdf -> SetFont('Arial', '', 14);
 $pdf -> Cell(0, 7, $fechaActual, 0, 1, 'L');
-$pdf -> Cell(0, 7, utf8_decode('Recibo de compra de '.$nombre), 0, 0, 'L');
+$pdf -> Cell(0, 7, utf8_decode('Recibo de compra de '.$firstName.' '.$lastName), 0, 0, 'L');
 $pdf -> Ln();
 $pdf -> Ln();
 
@@ -53,19 +76,19 @@ $pdf -> Cell(30, 10, 'Cantidad', 1, 0, 'C');
 $pdf -> Cell(105, 10, 'Producto', 1, 0, 'C');
 $pdf -> Cell(42, 10, 'Precio', 1, 0,'C');
 $pdf -> Ln();
-$pdf -> SetFont('Arial', '', 14);
-$pdf -> Cell(30, 10, '1', 1, 0, 'C');
-$pdf -> Cell(105, 10, utf8_decode('    Hola2 Hola2 Hola2 Hola2 Hola2 Hola2'), 1, 0);
-$pdf -> Cell(42, 10, '$Esta caro 5000', 1, 0, 'C');
-$pdf -> Ln();
 
-//columnas vacías
-for($i = 0; $i < 3; $i++){
-  $pdf -> Cell(30, 10, '', 1, 0, 'C');
-  $pdf -> Cell(105, 10, utf8_decode(''), 1, 0);
-  $pdf -> Cell(42, 10, '', 1, 0, 'C');
-  $pdf -> Ln();
+while ($row = mysqli_fetch_array($query)) {
+    $totalProducto = $row[0] * $row[2];
+    $total += $totalProducto;
+    $pdf -> SetFont('Arial', '', 14);
+    $pdf -> Cell(30, 10, $row[0], 1, 0, 'C');
+    $pdf -> Cell(105, 10, utf8_decode('  '.$row[1].''), 1, 0);
+    $pdf -> Cell(42, 10, '$'.$totalProducto, 1, 0, 'C');
+    $pdf -> Ln();
 }
+
+$pdf -> Ln();
+$pdf -> Cell(0, 7, utf8_decode('Total a pagar: $'.$total.' pesos mexicanos.'), 0, 0, 'L');
 
 //pie de página
 $pdf -> SetY(260);
@@ -112,6 +135,28 @@ try {
     $mail->Body = 'Agradecemos tu compra en Componentes PC, a continuación tienes tu recibo de compra ';
 
     $mail->send();
+
+    $em = "SELECT cart.items, product.id
+        from cart
+        JOIN user ON cart.user_id = user.id
+        JOIN product ON cart.product_id = product.id
+        WHERE user.id = $user_id;";
+    $query = mysqli_query($conexion, $em);
+
+    while ($row = mysqli_fetch_array($query)) {
+        // Resta la cantidad solicitada por la cantidad disponible
+        $update = "UPDATE product SET available = available - $row[0] WHERE id = $row[1]";
+        $updateQuery = mysqli_query($conexion, $update);
+    
+        if(!$updateQuery)
+            echo "Error al actualizar la cantidad disponible: " . mysqli_error($conexion);
+    }
+
+    $delete = "DELETE FROM cart WHERE user_id=$user_id;";
+    $deleteQuery = mysqli_query($conexion, $delete);
+
+    if(!$deleteQuery)
+        die ("Fallo la eliminacion." . mysqli_error($conexion));
 } catch (Exception $e) {
     echo "No se pudo enviar el correo. Correo Error: {$mail->ErrorInfo}";
 }

@@ -145,7 +145,7 @@ function getProduct(id) {
                             required
                           />
                           <div class="btn-car">
-                            <button type="submit" id="btnAgregar" name="btnAgregar" value="Agregar al carrito">
+                            <button type="submit" id="btnAgregar" name="btnAgregar" value="Agregar al carrito" data-id="${product.id}" style="padding: .5em;">
                               <i class="fa fa-shopping-cart fa-5"></i>
                               Agregar al carrito
                             </button>
@@ -169,3 +169,41 @@ function getProduct(id) {
 
   ajax.send(getId);
 }
+
+document.addEventListener("submit", function (e) {
+  if (e.target.matches("#formItem")) {
+    e.preventDefault();
+
+    let user = sessionStorage.getItem('user');
+    if (!user) {
+      alert("Necesitas crear una cuenta o iniciar sesión.");
+      return;
+    }
+
+    let idProduct = e.target.querySelector("#btnAgregar").dataset.id;
+    let txtCantidad = document.querySelector("#txtCantidad").value;
+    let userJson = JSON.parse(sessionStorage.getItem('user'));
+    let userId = userJson ? userJson.id : null;
+
+    if (txtCantidad == "") {
+      alert("Rellene el campo faltante, cantidad.");
+      e.preventDefault();
+    } else {
+      let cart = new FormData();
+      cart.append("items", txtCantidad);
+      cart.append("product_id", idProduct);
+      cart.append("user_id", userId);
+      e.preventDefault();
+      
+      let ajax = new XMLHttpRequest();
+      ajax.open("post", "/php/product/cart/Add.php", true);
+      ajax.onload = function () {
+        let productMessage = ajax.response;
+        alert(productMessage);
+        if(confirm("¿Quieres ir al carrito o seguir comprando?"))
+          window.location.href = "/pages/cart";
+      };
+      ajax.send(cart);
+    }
+  }
+});

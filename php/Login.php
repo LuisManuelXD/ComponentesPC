@@ -4,7 +4,7 @@ include "conexion.php";
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$em = "select email, password, admin FROM user WHERE 
+$em = "select id, email, password, admin FROM user WHERE 
     email = '".$email."' AND password = '".$password."' ";
 $query = mysqli_query($conexion, $em);
 
@@ -18,6 +18,7 @@ if($userExists == 1) {
             'status' => 'success',
             'code' => 200,
             'message' => 'Inicio de sesión exitoso.',
+            'id' => $row['id'],
             'email' => $email,
             'admin' => $row['admin']
         );
