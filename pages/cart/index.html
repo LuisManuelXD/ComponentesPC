@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/img/favicon.ico" />
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/fontawesome/css/all.css" />
+    <script src="/components/landing/Header.js"></script>
+    <script src="/components/landing/Footer.js"></script>
+    <script src="/components/admin/Nav.js"></script>
+    <title>PC comoponets shop</title>
+  </head>
+  <body>
+    <header-page></header-page>
+    <section>
+      <section class="main">
+        <section class="table-admin" style="width: auto">
+          <h2>Carrito</h2>
+          <br />
+          <div class="btn-container">
+              <a id="btnBuy" href="#">Comprar</a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Cantidad</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="tableCardProducts"></tbody>
+          </table>
+        </section>
+      </section>
+    </section>
+    <footer-page></footer-page>
+  </body>
+  <script src="/assets/js/nav.js"></script>
+  <script src="/js/cart/Cart.js"></script>
+</html>
+
+<style>
+    .btn-container {
+        margin: 2em 0;
+    }
+
+    #btnBuy {
+      background-color: blue;
+      color: #fff;
+      padding: 1em;
+      text-decoration: none;
+      border-radius: .3em;
+    }
+  
+    #btnBuy:hover {
+      background-color: rgb(90, 90, 254);
+    }
+  </style>

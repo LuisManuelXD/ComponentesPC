@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/img/favicon.ico" />
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/fontawesome/css/all.css" />
+    <script src="/components/landing/Header.js"></script>
+    <script src="/components/landing/Footer.js"></script>
+    <script src="/components/admin/Nav.js"></script>
+    <title>PC comoponets shop</title>
+  </head>
+  <body>
+    <header-page></header-page>
+    <section>
+      <div class="content-admin">
+        <nav-page></nav-page>
+        <div class="content-view">
+        </div>
+        <section class="table-admin">
+          <h1>Provedores</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Correo electrónico</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="tableProviders"></tbody>
+          </table>
+        </section>
+        <section class="modal">
+          <div class="modal__container">
+            <a href="#" class="modal__close">
+              <i class="fa-2x fa-solid fa-close" style="color: #000"></i>
+            </a>
+            <div class="form-register" style="width: 95%;">
+              <h4>Registrar provedor</h4>
+              <input type="hidden" id="txtId" name="txtId">
+              <form id="providerForm" method="post">
+                <label for="txtName">Nombre:</label>
+                <input
+                  class="controls"
+                  type="text"
+                  name="txtName"
+                  id="txtName"
+                  placeholder="Nombre del producto"
+                  autocomplete="none"
+                  required
+                />
+                <label for="txtEmail">Correo electrónico:</label>
+                <input
+                  class="controls"
+                  name="txtEmail"
+                  id="txtEmail"
+                  type="email"
+                  placeholder="Correo electrónico"
+                  autocomplete="none"
+                  required
+                />
+                <label for="txtZipCode">Codigo postal:</label>
+                <input
+                  class="controls"
+                  type="number"
+                  name="txtZipCode"
+                  id="txtZipCode"
+                  placeholder="Codigo postal"
+                  autocomplete="none"
+                  required
+                />
+                <label for="txtAddress">Dirección:</label>
+                <input
+                  class="controls"
+                  type="text"
+                  name="txtAddress"
+                  id="txtAddress"
+                  placeholder="Dirección"
+                  autocomplete="none"
+                  required
+                />
+                <label for="txtDescription">Descripción:</label>
+                <textarea
+                  class="controls"
+                  name="txtDescription"
+                  id="txtDescription"
+                  cols="30"
+                  rows="10"
+                  placeholder="Descripción"
+                  required
+                ></textarea>
+                <input class="botons" type="submit" value="Registrar provedor" />
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+    <footer-page></footer-page>
+  </body>
+  <script src="/assets/js/nav.js"></script>
+  <script src="/js/admin/providers/Provider.js"></script>
+</html>
