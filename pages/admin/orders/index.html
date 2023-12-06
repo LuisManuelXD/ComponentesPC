@@ -17,12 +17,28 @@
     <section>
       <div class="content-admin">
         <nav-page></nav-page>
-        <div class="content-view">
+        <section class="table-admin">
           <h1>Pedidos</h1>
-        </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Correo del cliente</th>
+                <th>Estado del pago</th>
+                <th>Estado del pedido</th>
+                <th>Nombre del producto</th>
+                <th>Cantidad</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="tableOrders">
+            </tbody>
+          </table>
+        </section>
       </div>
     </section>
     <footer-page></footer-page>
   </body>
   <script src="/assets/js/nav.js"></script>
+  <script src="/js/admin/orders/Orders.js"></script>
 </html>

@@ -136,7 +136,7 @@ try {
 
     $mail->send();
 
-    $em = "SELECT cart.items, product.id
+    $em = "SELECT cart.items, product.id, user.id
         from cart
         JOIN user ON cart.user_id = user.id
         JOIN product ON cart.product_id = product.id
@@ -150,6 +150,13 @@ try {
     
         if(!$updateQuery)
             echo "Error al actualizar la cantidad disponible: " . mysqli_error($conexion);
+
+        $insertOrders = "INSERT INTO orders (paymentStatus, orderStatus, items, product_id, user_id) 
+        values (0, 0, '$row[0]', '$row[1]', '$row[2]');";
+        $insertQuery = mysqli_query($conexion, $insertOrders);
+
+        if(!$insertQuery)
+            echo "Error al insertar el producto: " . mysqli_error($conexion);
     }
 
     $delete = "DELETE FROM cart WHERE user_id=$user_id;";
