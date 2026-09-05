@@ -10,6 +10,14 @@ require('fpdf/fpdf.php');
 
 include "../conexion.php";
 
+$env = parse_ini_file(__DIR__ . '/../../.env');
+$EMAIL_HOST = $env['EMAIL_HOST'];
+$EMAIL_SMTP_AUTH = $env['EMAIL_SMTP_AUTH'];
+$EMAIL_USER = $env['EMAIL_USER'];
+$EMAIL_PASS = $env['EMAIL_PASS'];
+$EMAIL_SMTP_SECURE = $env['EMAIL_SMTP_SECURE'];
+$EMAIL_PORT = $env['EMAIL_PORT'];
+
 $user_id = $_POST['user_id'];
 $email = $_POST['email'];
 
@@ -96,7 +104,7 @@ $pdf -> SetFont('Arial', 'BI', 12);
 $pdf -> SetTextColor(65, 106, 150);
 $pdf -> Cell(0, 10, utf8_decode('C. Nueva Escocia 1885, 44630 Guadalajara, Jal.  Teléfono: 33-3641-3250'), 0, 0, 'C');
 $pdf -> Ln(5);
-$pdf -> Cell(0, 10, utf8_decode('© 2023 "Componentes PC"'), 0, 0, 'C');
+$pdf -> Cell(0, 10, utf8_decode('© 2026 "Componentes PC"'), 0, 0, 'C');
 $pdf -> SetTextColor(0, 0, 0);
   
 $fechaYHora = date("d-m-y-His");
@@ -110,14 +118,14 @@ try {
     //Configuraciones del Servidor
     $mail->SMTPDebug = 2;
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
-    $mail->SMTPAuth   = true;
+    $mail->Host       = $EMAIL_HOST;
+    $mail->SMTPAuth   = $EMAIL_SMTP_AUTH;
 
-    $mail->Username   = 'riostorresGamer@gmail.com';
-    $mail->Password   = 'dfbyzrwikkenkgsf';
+    $mail->Username   = $EMAIL_USER;
+    $mail->Password   = $EMAIL_PASS;
 
-    $mail->SMTPSecure = 'TLS';
-    $mail->Port       = 587;
+    $mail->SMTPSecure = $EMAIL_SMTP_SECURE;
+    $mail->Port       = $EMAIL_PORT;
     $mail->SMTPOptions = array(
         'ssl' => array(
             'verify_peer' => false,
@@ -126,7 +134,7 @@ try {
         )
     );
 
-    $mail->setFrom('riostorresGamer@gmail.com', 'Componentes PC');
+    $mail->setFrom($EMAIL_USER, 'Componentes PC');
     $mail->addAddress($email);
     $mail->addAttachment($nombreArchivo);
 

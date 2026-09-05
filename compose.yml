@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www/html
+  
+  mysql_db:
+      image: mysql:8.0
+      container_name: servidor_mysql
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: ${DB_PASS}
+        MYSQL_DATABASE: ${DB_DATABASE}
+      ports:
+        - "3306:3306"

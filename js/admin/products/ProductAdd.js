@@ -47,7 +47,7 @@ btnImage.addEventListener("change", function (e) {
   let file = e.target.files[0];
   let reader = new FileReader();
 
-  if (file && (file.type == "image/jpeg" || file.type == "image/png")) {
+  if (file && (file.type == "image/jpeg" || file.type == "image/png" || file.type == "image/jpg")) {
     reader.onload = function () {
       document.getElementById("imgView").src = reader.result;
       imageFile = file;
